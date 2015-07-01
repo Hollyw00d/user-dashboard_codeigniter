@@ -8,5 +8,6 @@ $route['signin'] = 'userdashboard/signin';
 $route['register'] = 'userdashboard/register';
 $route['dashboard/admin'] = 'userdashboard/admin';
 $route['dashboard'] = 'userdashboard/normaluser';
+$route['users/new'] = 'userdashboard/adduser';
 
 //end of routes.php

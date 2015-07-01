@@ -73,7 +73,7 @@ nav li {
     background: #ccc;
 }
 
-#admin-dashboard-table tbody tr:nth-child(even) {
+#admin-dashboard-table tbody tr:nth-child(odd) {
     background: #eee;
 }
 

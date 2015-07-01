@@ -15,22 +15,38 @@
 
             <table id="admin-dashboard-table">
                 <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Created At</th>
-                    <th>User Level</th>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Created At</th>
+                        <th>User Level</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>ID_HERE</td>
-                    <td><a href="#">NAME_HERE</a></td>
-                    <td>EMAIL_HERE</td>
-                    <td>CREATED_AT_HERE</td>
-                    <td>USER_LEVEL_HERE</td>
-                </tr>
+                    <tr>
+                        <td>ID_HERE</td>
+                        <td><a href="#">NAME_HERE</a></td>
+                        <td>EMAIL_HERE</td>
+                        <td>CREATED_AT_HERE</td>
+                        <td>USER_LEVEL_HERE</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID_HERE</td>
+                        <td><a href="#">NAME_HERE</a></td>
+                        <td>EMAIL_HERE</td>
+                        <td>CREATED_AT_HERE</td>
+                        <td>USER_LEVEL_HERE</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID_HERE</td>
+                        <td><a href="#">NAME_HERE</a></td>
+                        <td>EMAIL_HERE</td>
+                        <td>CREATED_AT_HERE</td>
+                        <td>USER_LEVEL_HERE</td>
+                    </tr>
                 </tbody>
 
             </table>

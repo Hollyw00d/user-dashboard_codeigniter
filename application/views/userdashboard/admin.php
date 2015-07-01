@@ -6,8 +6,8 @@
             <h3>Manage Users</h3>
         </div>
         <div class="col-md-4">
-            <form action="" method="post">
-                <input type="hidden" name="add-new"/>
+            <form action="<?php echo base_url() . 'users/new'; ?>" method="post">
+                <input type="hidden" name="add_new"/>
                 <h3><input class="float-right" type="submit" value="Add New"/></h3>
             </form>
         </div>
