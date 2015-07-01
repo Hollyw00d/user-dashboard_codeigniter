@@ -5,6 +5,10 @@ class UserDashboard extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+
+        // Load the UserDashboardModel on all pages
+        $this->load->model('UserDashboardModel');
+
         $this->output->enable_profiler();
     }
 
@@ -48,7 +52,11 @@ class UserDashboard extends CI_Controller
         // Assigns if the user is admin or normal user
         $user_type = 'admin';
 
-        $this->load->view('userdashboard/admin', array('title_tag' => $title_tag, 'user_type' => $user_type));
+        // Load the model method to
+        // display all rows from the "users" table
+        $show_users = $this->UserDashboardModel->show_all_users();
+
+        $this->load->view('userdashboard/admin', array('title_tag' => $title_tag, 'user_type' => $user_type, 'show_users' => $show_users));
     }
 
     public function normaluser()
@@ -59,7 +67,11 @@ class UserDashboard extends CI_Controller
         // Assigns if the user is admin or normal user
         $user_type = 'normal';
 
-        $this->load->view('userdashboard/normal_user', array('title_tag' => $title_tag, 'user_type' => $user_type));
+        // Load the model method to
+        // display all rows from the "users" table
+        $show_users = $this->UserDashboardModel->show_all_users();
+
+        $this->load->view('userdashboard/normal_user', array('title_tag' => $title_tag, 'user_type' => $user_type, 'show_users' => $show_users));
     }
 
     public function adduser()

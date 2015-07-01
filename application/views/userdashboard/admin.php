@@ -32,35 +32,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>ID_HERE</td>
-                        <td><a href="#">NAME_HERE</a></td>
-                        <td>EMAIL_HERE</td>
-                        <td>CREATED_AT_HERE</td>
-                        <td>USER_LEVEL_HERE</td>
-                        <td class="no-border"><a href="#">edit</a></td>
-                        <td><a href="#">remove</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>ID_HERE</td>
-                        <td><a href="#">NAME_HERE</a></td>
-                        <td>EMAIL_HERE</td>
-                        <td>CREATED_AT_HERE</td>
-                        <td>USER_LEVEL_HERE</td>
-                        <td class="no-border"><a href="#">edit</a></td>
-                        <td><a href="#">remove</a></td>
-                    </tr>
-
-                    <tr>
-                        <td>ID_HERE</td>
-                        <td><a href="#">NAME_HERE</a></td>
-                        <td>EMAIL_HERE</td>
-                        <td>CREATED_AT_HERE</td>
-                        <td>USER_LEVEL_HERE</td>
-                        <td class="no-border"><a href="#">edit</a></td>
-                        <td><a href="#">remove</a></td>
-                    </tr>
+                    <?php
+                    foreach(array_reverse($show_users) as $row) {
+                    ?>
+                        <tr>
+                            <td><?php echo $row['id']; ?></td>
+                            <td><a href="#"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></a></td>
+                            <td><?php echo $row['email']; ?></td>
+                            <td><?php echo $row['created_at']; ?></td>
+                            <td><?php echo $row['user_level']; ?></td>
+                            <td class="no-border"><a href="#">edit</a></td>
+                            <td><a href="#">remove</a></td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
 
             </table>
