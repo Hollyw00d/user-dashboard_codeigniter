@@ -7,7 +7,38 @@ body {
     background: white;
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px 0px;
+    padding: 0 0 20px;
     min-height: 400px;
     overflow: auto;
+}
+
+nav {
+    min-height: 34px;
+    background: white;
+    border: 1px solid black;
+    border-width: 0 0 1px;
+    font-size: 20px;
+    padding: 0 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    min-height: 34px !important;
+    line-height: 34px !important;
+    display: inline-block;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+nav li {
+    display: inline-block;
+    float: left;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
 }
