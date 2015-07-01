@@ -7,7 +7,6 @@ $route['404_override'] = '';
 $route['signin'] = 'userdashboard/signin';
 $route['register'] = 'userdashboard/register';
 $route['dashboard/admin'] = 'userdashboard/admin';
-
-
+$route['dashboard'] = 'userdashboard/normaluser';
 
 //end of routes.php

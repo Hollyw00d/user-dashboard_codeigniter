@@ -43,12 +43,23 @@ class UserDashboard extends CI_Controller
     public function admin()
     {
         // Assigns title tag
-        $title_tag = 'Admin';
+        $title_tag = 'Admin Dashboard';
 
         // Assigns if the user is admin or normal user
         $user_type = 'admin';
 
         $this->load->view('userdashboard/admin', array('title_tag' => $title_tag, 'user_type' => $user_type));
+    }
+
+    public function normaluser()
+    {
+        // Assigns title tag
+        $title_tag = 'User Dashboard';
+
+        // Assigns if the user is admin or normal user
+        $user_type = 'normal';
+
+        $this->load->view('userdashboard/normal_user', array('title_tag' => $title_tag, 'user_type' => $user_type));
     }
 
 }
