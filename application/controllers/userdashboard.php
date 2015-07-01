@@ -10,13 +10,45 @@ class UserDashboard extends CI_Controller
 
     public function index()
     {
+        // Assigns title tag
+        $title_tag = 'User Dashboard Home';
 
-        $this->load->view('userdashboard/home');
+        $this->load->view('userdashboard/home', array('title_tag' => $title_tag));
     }
 
     public function signin()
     {
-        die('Inside "signin" method');
+        // Assigns title tag
+        $title_tag = 'Sign In';
+
+        // Assigns if the user is admin or normal user
+        $user_type = 'admin';
+
+
+
+        $this->load->view('userdashboard/signin', array('title_tag' => $title_tag, 'user_type' => $user_type));
+    }
+
+    public function register()
+    {
+        // Assigns title tag
+        $title_tag = 'Register';
+
+        // Assigns if the user is admin or normal user
+        $user_type = 'admin';
+
+        $this->load->view('userdashboard/register', array('title_tag' => $title_tag, 'user_type' => $user_type));
+    }
+
+    public function admin()
+    {
+        // Assigns title tag
+        $title_tag = 'Admin';
+
+        // Assigns if the user is admin or normal user
+        $user_type = 'admin';
+
+        $this->load->view('userdashboard/admin', array('title_tag' => $title_tag, 'user_type' => $user_type));
     }
 
 }

@@ -1,32 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Dashboard Home</title>
-
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-theme.min.css"/>
-
-    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css"/>
-
-</head>
-<body>
-
-<div class="row">
-    <div class="col-md-12">
-        <nav role="navigation">
-            <ul id="main-nav">
-                <li><a href="<?php echo base_url(); ?>">Home</a></li>
-            </ul>
-            <ul id="utility-nav" class="float-right">
-                <li><a href="#">Sign In</a></li>
-            </ul>
-        </nav>
-    </div>
-
-</div>
-
-<div id="wrapper">
+<?php $this->load->view('userdashboard/partial/header'); ?>
 
     <div class="row-fluid">
         <div id="header" class="col-md-12 jumbotron">
@@ -54,9 +26,4 @@
         </div>
     </div>
 
-</div><?php //#wrapper ?>
-
-
-
-</body>
-</html>
+<?php $this->load->view('userdashboard/partial/footer'); ?>
