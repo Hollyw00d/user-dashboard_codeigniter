@@ -37,8 +37,6 @@ $this->load->library('form_validation');
 
     <form id="signin-register-add" action="<?php echo base_url() . 'register/newuser'; ?>" method="post">
         <input type="hidden" name="register"/>
-        <input type="hidden" name="user_level" value="normal"/>
-
         <div class="row-fluid">
             <div class="col-md-3"><p><label for="email">Email Address:</label></p></div>
             <div class="col-md-9"><p><input type="text" name="email" value="<?php echo set_value('email'); ?>"/></p></div>

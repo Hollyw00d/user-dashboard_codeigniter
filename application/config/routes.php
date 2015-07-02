@@ -5,6 +5,8 @@ $route['404_override'] = '';
 
 // Routes for methods in the "userdashboard" controller
 $route['signin'] = 'userdashboard/signin';
+
+// Registration page
 $route['register'] = 'userdashboard/register';
 
 // Add new user
