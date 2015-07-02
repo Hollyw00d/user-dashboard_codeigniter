@@ -98,6 +98,28 @@ class UserDashboard extends CI_Controller
         $this->load->view('userdashboard/register', array('title_tag' => $title_tag, 'user_type' => $user_type));
     }
 
+    // Register a new user with a "user_level" of normal
+    // and use a select tag
+    public function registernewuser()
+    {
+        // Load the form_validation library
+        $this->load->library('form_validation');
+
+        // Set form validation rules
+        $this->form_validation->set_rules('first_name', '<strong><em>first name</em></strong>', 'required|xss_clean|trim|min_length[15]|max_length[100]');
+
+        $this->form_validation->set_rules('last_name', '<strong><em>last name</em></strong>', 'required|xss_clean|trim|min_length[15]|max_length[100]');
+
+        // If there are form validation errors
+        if($this->form_validation->run() == FALSE)
+        {
+            redirect(base_url() . 'register');
+        }
+
+
+
+    }
+
     public function admin()
     {
         // Assigns title tag
@@ -137,11 +159,6 @@ class UserDashboard extends CI_Controller
         $user_type = 'admin';
 
         $this->load->view('userdashboard/adduser', array('title_tag' => $title_tag, 'user_type' => $user_type));
-    }
-
-    public function userprofile()
-    {
-        die('On "userprofile" method');
     }
 
     public function destroy()
