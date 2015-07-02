@@ -18,7 +18,7 @@ $this->load->library('form_validation');
             <div class="error">
                 <?php
                 // Display validation errors if they exist
-                echo validation_errors();
+                echo $this->session->flashdata('register_errors');
                 ?>
             </div>
         </div>
@@ -44,12 +44,12 @@ $this->load->library('form_validation');
 
         <div class="row-fluid">
             <div class="col-md-3"><p><label for="password">Password:</label></p></div>
-            <div class="col-md-9"><p><input type="text" name="password"/></p></div>
+            <div class="col-md-9"><p><input type="password" name="password"/></p></div>
         </div>
 
         <div class="row-fluid">
-            <div class="col-md-3"><p><label for="confirm_passwrd">Confirm Password:</label></p></div>
-            <div class="col-md-9"><p><input type="text" name="confirm_passwrd"/></p></div>
+            <div class="col-md-3"><p><label for="confirm_password">Confirm Password:</label></p></div>
+            <div class="col-md-9"><p><input type="password" name="confirm_password"/></p></div>
         </div>
 
         <div class="row-fluid">

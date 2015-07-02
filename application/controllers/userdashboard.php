@@ -98,6 +98,16 @@ class UserDashboard extends CI_Controller
         $this->load->view('userdashboard/register', array('title_tag' => $title_tag, 'user_type' => $user_type));
     }
 
+
+
+
+
+
+
+
+
+
+
     // Register a new user with a "user_level" of normal
     // and use a select tag
     public function registernewuser()
@@ -106,19 +116,41 @@ class UserDashboard extends CI_Controller
         $this->load->library('form_validation');
 
         // Set form validation rules
-        $this->form_validation->set_rules('first_name', '<strong><em>first name</em></strong>', 'required|xss_clean|trim|min_length[15]|max_length[100]');
+        $this->form_validation->set_rules('email', '<strong><em>email</em></strong>', 'required|xss_clean|trim|min_length[5]|max_length[100]|is_unique[users.email]');
 
-        $this->form_validation->set_rules('last_name', '<strong><em>last name</em></strong>', 'required|xss_clean|trim|min_length[15]|max_length[100]');
+        $this->form_validation->set_rules('first_name', '<strong><em>first name</em></strong>', 'required|xss_clean|trim|min_length[2]|max_length[100]');
+
+        $this->form_validation->set_rules('last_name', '<strong><em>last name</em></strong>', 'required|xss_clean|trim|min_length[2]|max_length[100]');
+
+        $this->form_validation->set_rules('password', '<strong><em>password</em></strong>', 'required|xss_clean|trim|min_length[6]|max_length[20]');
+
+        $this->form_validation->set_rules('confirm_password', '<strong><em>password confirmation</em></strong>', 'required|xss_clean|trim|matches[password]');
 
         // If there are form validation errors
         if($this->form_validation->run() == FALSE)
         {
+
+            // Set registration errors as a
+            // flash data variable
+            $this->session->set_flashdata('register_errors', validation_errors());
+
+
             redirect(base_url() . 'register');
         }
 
-
-
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function admin()
     {

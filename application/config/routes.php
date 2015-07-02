@@ -7,6 +7,7 @@ $route['404_override'] = '';
 $route['signin'] = 'userdashboard/signin';
 $route['register'] = 'userdashboard/register';
 
+// Add new user
 $route['register/newuser'] = 'userdashboard/registernewuser';
 
 $route['dashboard/admin'] = 'userdashboard/admin';
