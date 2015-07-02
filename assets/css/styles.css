@@ -80,3 +80,11 @@ nav li {
 .clear {
     clear: both;
 }
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}

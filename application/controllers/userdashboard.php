@@ -20,6 +20,7 @@ class UserDashboard extends CI_Controller
         $this->load->view('userdashboard/home', array('title_tag' => $title_tag));
     }
 
+    // Create sign in form page
     public function signin()
     {
         // Assigns title tag
@@ -28,9 +29,51 @@ class UserDashboard extends CI_Controller
         // Assigns if the user is admin or normal user
         $user_type = 'admin';
 
-
-
         $this->load->view('userdashboard/signin', array('title_tag' => $title_tag, 'user_type' => $user_type));
+    }
+
+    // Error validation and redirect to:
+    // admin page OR
+    // normal user page
+    public function checksignin()
+    {
+
+        $sec_email = $this->input->post('email', TRUE);
+        $password = $this->input->post('password', TRUE);
+        $sec_password = substr(md5($password), 0, -2);
+
+        $check_user = $this->UserDashboardModel->check_login_email($sec_email, $sec_password);
+
+        // If user exists in database...
+        if($check_user)
+        {
+            // If user_level is "admin"
+            // go to page and create an "admin_session" variable
+            if($check_user['user_level'] == 'admin')
+            {
+                $this->session->set_userdata('admin_session', 'admin_session');
+
+                redirect(base_url() . 'dashboard/admin');
+            }
+            // Elseif user_level is "normal"
+            // go to page and create an "normal_session" variable
+            elseif($check_user['user_level'] == 'normal')
+            {
+                $this->session->set_userdata('normal_session', 'normal_session');
+
+                redirect(base_url() . 'dashboard');
+            }
+
+        }
+        else
+        {
+            // If the user doesn't exist in the database
+            // redirect to the sign in page and
+            // display the error session variable below
+            $this->session->set_userdata('not_in_db_error', '<strong><p>Your email/password are invalid. Please try again.</p></strong>');
+
+            redirect(base_url() . 'signin');
+        }
     }
 
     public function register()
@@ -83,6 +126,18 @@ class UserDashboard extends CI_Controller
         $user_type = 'admin';
 
         $this->load->view('userdashboard/adduser', array('title_tag' => $title_tag, 'user_type' => $user_type));
+    }
+
+    public function userprofile()
+    {
+        die('On "userprofile" method');
+    }
+
+    public function destroy()
+    {
+        $this->session->sess_destroy();
+
+        redirect(base_url());
     }
 
 }

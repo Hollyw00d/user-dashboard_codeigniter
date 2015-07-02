@@ -6,8 +6,21 @@
         </div>
     </div>
 
-        <form id="signin-register-add" action="<?php echo base_url() . $user_type; ?>" method="post">
-            <input type="hidden" name="signin"/>
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="error">
+                <?php
+                // Display user error if it exists
+                echo $this->session->userdata('not_in_db_error');
+                $this->session->unset_userdata('not_in_db_error');
+                ?>
+            </div>
+        </div>
+    </div>
+
+
+        <form id="signin-register-add" action="<?php echo base_url() . 'dashboard/checksignin'; ?>" method="post">
+            <input type="hidden" name="checksignin"/>
 
             <div class="row-fluid">
                 <div class="col-md-3"><p><label for="email">Email Address:</label></p></div>
@@ -16,7 +29,7 @@
 
             <div class="row-fluid">
                 <div class="col-md-3"><p><label for="email">Password:</label></p></div>
-                <div class="col-md-9"><p><input type="text" name="password"/></p></div>
+                <div class="col-md-9"><p><input type="password" name="password"/></p></div>
             </div>
 
             <div class="row-fluid">

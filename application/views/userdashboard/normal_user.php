@@ -1,3 +1,11 @@
+<?php
+// If the normal_session sessin variable DOESN'T exist
+// redirect to home page
+if(!$this->session->userdata('normal_session'))
+{
+    redirect(base_url());
+}
+?>
 <?php $this->load->view('userdashboard/partial/header'); ?>
 
     <div class="row-fluid">
