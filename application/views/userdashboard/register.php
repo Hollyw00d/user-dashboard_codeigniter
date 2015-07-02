@@ -24,8 +24,20 @@ $this->load->library('form_validation');
         </div>
     </div>
 
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="success">
+                <?php
+                // Display validation errors if they exist
+                echo $this->session->flashdata('register_success');
+                ?>
+            </div>
+        </div>
+    </div>
+
     <form id="signin-register-add" action="<?php echo base_url() . 'register/newuser'; ?>" method="post">
         <input type="hidden" name="register"/>
+        <input type="hidden" name="user_level" value="normal"/>
 
         <div class="row-fluid">
             <div class="col-md-3"><p><label for="email">Email Address:</label></p></div>

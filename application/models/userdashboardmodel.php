@@ -12,8 +12,10 @@ class UserDashboardModel extends CI_Model
         return $this->db->query("SELECT * FROM users WHERE (email = ? AND password = ?)", array($submitted_email, $submitted_password))->row_array();
     }
 
-    public function insert_user($post)
+    public function insert_user($post_data)
     {
+
+        $this->db->query("INSERT INTO users (first_name, last_name, email, password, user_level, created_at, updated_at) VALUES (?,?,?,?,?,NOW(),NOW())", array($post_data['first_name'], $post_data['last_name'], $post_data['email'], substr(md5($post_data['password']), 0, -2), $post_data['user_level']));
 
     }
 

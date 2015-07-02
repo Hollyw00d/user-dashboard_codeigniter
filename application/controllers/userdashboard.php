@@ -107,16 +107,18 @@ class UserDashboard extends CI_Controller
 
 
 
-
     // Register a new user with a "user_level" of normal
     // and use a select tag
     public function registernewuser()
     {
+        // Load the form helper
+        $this->load->helper('form');
+
         // Load the form_validation library
         $this->load->library('form_validation');
 
         // Set form validation rules
-        $this->form_validation->set_rules('email', '<strong><em>email</em></strong>', 'required|xss_clean|trim|min_length[5]|max_length[100]|is_unique[users.email]');
+        $this->form_validation->set_rules('email', '<strong><em>email</em></strong>', 'required|xss_clean|trim|min_length[5]|max_length[100]|is_unique[users.email]|valid_email');
 
         $this->form_validation->set_rules('first_name', '<strong><em>first name</em></strong>', 'required|xss_clean|trim|min_length[2]|max_length[100]');
 
@@ -140,8 +142,20 @@ class UserDashboard extends CI_Controller
         else
         {
 
+            // Set form post first_name and last_name
+            // as variables
+            $first_name_post = $this->input->post('first_name', TRUE);
+            $last_name_post = $this->input->post('last_name');
 
+            // Set registration success message
+            // as flash data
+            $this->session->set_flashdata("register_success", "<p><strong>$first_name_post $last_name_post, thank you for registering!</strong></p>");
 
+            // Run model to insert form fields into
+            // database
+            $this->UserDashboardModel->insert_user($this->input->post(NULL, TRUE));
+
+            redirect(base_url() . 'register');
 
         }
 
