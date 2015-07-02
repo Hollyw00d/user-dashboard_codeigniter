@@ -29,7 +29,7 @@ $this->load->library('form_validation');
 
         <div class="row-fluid">
             <div class="col-md-3"><p><label for="email">Email Address:</label></p></div>
-            <div class="col-md-9"><p><input type="text" name="email" <?php echo set_value('email'); ?>/></p></div>
+            <div class="col-md-9"><p><input type="text" name="email" value="<?php echo set_value('email'); ?>"/></p></div>
         </div>
 
         <div class="row-fluid">
