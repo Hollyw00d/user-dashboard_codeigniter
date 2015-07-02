@@ -18,11 +18,13 @@ $route['dashboard/user/profile'] = 'userdashboard/userprofile';
 
 $route['dashboard/checksignin'] = 'userdashboard/checksignin';
 
+// When logged in as an admin goes to the
+// page to add a new user
 $route['users/new'] = 'userdashboard/adduser';
 
+// Actually inserts a new user into the database
+$route['users/new/process'] = 'userdashboard/insertuserintodb';
 
-// Show single user record
-$route['dashboard/user/(:num)'] = 'userdashboard/showsinglerecord/$1';
 
 
 

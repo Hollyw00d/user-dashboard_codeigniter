@@ -191,6 +191,7 @@ class UserDashboard extends CI_Controller
         $user_type = 'admin';
 
         $this->load->view('userdashboard/adduser', array('title_tag' => $title_tag, 'user_type' => $user_type));
+
     }
 
 
@@ -201,17 +202,74 @@ class UserDashboard extends CI_Controller
 
 
 
-
-
-
-
-
-    public function showsinglerecord($user_id)
+    public function insertuserintodb()
     {
-        die('Inside "showsinglerecord" controller method from user id' . $user_id);
+
+        // Load the form helper
+        $this->load->helper('form');
+
+        // Load the form_validation library
+        $this->load->library('form_validation');
+
+        // Set form validation rules
+        $this->form_validation->set_rules('email', '<strong><em>email</em></strong>', 'required|xss_clean|trim|min_length[5]|max_length[100]|is_unique[users.email]|valid_email');
+
+        $this->form_validation->set_rules('first_name', '<strong><em>first name</em></strong>', 'required|xss_clean|trim|min_length[2]|max_length[100]');
+
+        $this->form_validation->set_rules('last_name', '<strong><em>last name</em></strong>', 'required|xss_clean|trim|min_length[2]|max_length[100]');
+
+        $this->form_validation->set_rules('password', '<strong><em>password</em></strong>', 'required|xss_clean|trim|min_length[6]|max_length[20]');
+
+        $this->form_validation->set_rules('confirm_password', '<strong><em>password confirmation</em></strong>', 'required|xss_clean|trim|matches[password]');
+
+        // If there are form validation errors
+        if($this->form_validation->run() == FALSE)
+        {
+
+            // Set registration errors as a
+            // flash data variable
+            $this->session->set_flashdata('admin_user_add_errors', validation_errors());
+
+
+            redirect(base_url() . 'users/new');
+        }
+        else
+        {
+            // Set form post first_name and last_name
+            // as variables
+            $first_name_post = $this->input->post('first_name', TRUE);
+            $last_name_post = $this->input->post('last_name');
+
+            // Set registration success message
+            // as flash data
+            $this->session->set_flashdata("admin_user_add_success", "<p><strong>$first_name_post $last_name_post has been added to the database!</strong></p>");
+
+            // Run model to insert form fields into
+            // database
+            $this->UserDashboardModel->admin_insert_user($this->input->post(NULL, TRUE));
+
+            redirect(base_url() . 'users/new');
+
+        }
+
+
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
