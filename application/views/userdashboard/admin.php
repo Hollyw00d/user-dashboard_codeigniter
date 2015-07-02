@@ -42,10 +42,12 @@ if(!$this->session->userdata('admin_session'))
                 <tbody>
                     <?php
                     foreach(array_reverse($show_users) as $row) {
+                        $first_last_name = $row['first_name'] . ' ' . $row['last_name'];
+
                     ?>
                         <tr>
                             <td><?php echo $row['id']; ?></td>
-                            <td><a href="#"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></a></td>
+                            <td><a href="<?php echo base_url() . 'dashboard/user/' . $row['id']; ?>"><?php echo $row['first_name'] . ' ' . $row['last_name']; ?></a></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['created_at']; ?></td>
                             <td><?php echo $row['user_level']; ?></td>

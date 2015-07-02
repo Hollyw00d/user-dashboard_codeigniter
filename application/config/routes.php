@@ -18,6 +18,14 @@ $route['dashboard/checksignin'] = 'userdashboard/checksignin';
 
 $route['users/new'] = 'userdashboard/adduser';
 
+
+// Show single user record
+$route['dashboard/user/(:num)'] = 'userdashboard/showsinglerecord/$1';
+
+
+
+
+
 $route['reset'] = 'userdashboard/destroy';
 
 //end of routes.php

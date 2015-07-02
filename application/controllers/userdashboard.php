@@ -98,15 +98,6 @@ class UserDashboard extends CI_Controller
         $this->load->view('userdashboard/register', array('title_tag' => $title_tag, 'user_type' => $user_type));
     }
 
-
-
-
-
-
-
-
-
-
     // Register a new user with a "user_level" of normal
     // and use a select tag
     public function registernewuser()
@@ -159,21 +150,7 @@ class UserDashboard extends CI_Controller
 
         }
 
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function admin()
     {
@@ -215,6 +192,39 @@ class UserDashboard extends CI_Controller
 
         $this->load->view('userdashboard/adduser', array('title_tag' => $title_tag, 'user_type' => $user_type));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function showsinglerecord($user_id)
+    {
+        die('Inside "showsinglerecord" controller method from user id' . $user_id);
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function destroy()
     {
