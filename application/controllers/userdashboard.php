@@ -47,19 +47,30 @@ class UserDashboard extends CI_Controller
         // If user exists in database...
         if($check_user)
         {
+            // Set user first/last name as variable
+            $hello_user_name = 'Hello, ' . $check_user['first_name'] . ' ' . $check_user['last_name'];
+
             // If user_level is "admin"
-            // go to page and create an "admin_session" variable
+            // go to page and create an "admin_session" variable AND
+            // create a session variable with a first AND
+            // last name
             if($check_user['user_level'] == 'admin')
             {
                 $this->session->set_userdata('admin_session', 'admin_session');
 
+                $this->session->set_userdata('admin_user_name', $hello_user_name);
+
                 redirect(base_url() . 'dashboard/admin');
             }
             // Elseif user_level is "normal"
-            // go to page and create an "normal_session" variable
+            // go to page and create an "normal_session" variable AND
+            // create a session variable with a first AND
+            // last name
             elseif($check_user['user_level'] == 'normal')
             {
                 $this->session->set_userdata('normal_session', 'normal_session');
+
+                $this->session->set_userdata('normal_user_name', $hello_user_name);
 
                 redirect(base_url() . 'dashboard');
             }

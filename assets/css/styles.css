@@ -88,3 +88,7 @@ nav li {
 .success {
     color: green;
 }
+
+#nav-user-name {
+    padding: 0 40px 0 0;
+}
