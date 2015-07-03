@@ -83,6 +83,36 @@ if(!$this->session->userdata('admin_session'))
         <div class="col-md-6">
             <h3>Change Password</h3>
 
+            <div class="error">
+                <?php
+                echo $this->session->flashdata('admin_user_add_errors');
+                ?>
+            </div>
+
+            <div class="success">
+                <?php
+                echo $this->session->flashdata('success_message');
+                ?>
+            </div>
+
+            <form action="<?php echo base_url() . 'users/pw/process/' . $show_single_user['id']; ?>" method="post" class="side-by-side-form">
+                <input type="hidden" name="user_pw_update"/>
+                <p>
+                    <label for="password">Password:</label><br />
+                    <input type="password" name="password"/>
+                </p>
+
+                <p>
+                    <label for="confirm_password">Confirm Password:</label><br />
+                    <input type="password" name="confirm_password"/>
+                </p>
+
+                <p>&nbsp;</p>
+                <p>
+                    <input type="submit" value="Update"/>
+                </p>
+            </form>
+
         </div>
     </class>
 

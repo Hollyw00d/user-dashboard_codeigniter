@@ -19,11 +19,14 @@ $route['dashboard/admin'] = 'userdashboard/admin';
 // update
 $route['users/edit/(:num)'] = 'userdashboard/adminupdateuser/$1';
 
-// For Admins only, a page to actually update
-// a single user
+// For Admins only, a form action to
+// execute a single user update
+// EXCLUDING the password
 $route['users/edit/process/(:num)'] = 'userdashboard/executeupdatesingleuser/$1';
 
-
+// For Admins only, a form action to
+// update a single user password ONLY
+$route['users/pw/process/(:num)'] = 'userdashboard/executeupdateuserpassword/$1';
 
 
 // Normal user home page after signing in

@@ -258,13 +258,6 @@ class UserDashboard extends CI_Controller
 
     }
 
-
-
-
-
-
-
-
     public function executeupdatesingleuser($user_id)
     {
 
@@ -281,7 +274,42 @@ class UserDashboard extends CI_Controller
 
     }
 
+    public function executeupdateuserpassword($user_id)
+    {
 
+        // Load the form helper
+        $this->load->helper('form');
+
+        // Load the form_validation library
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('password', '<strong><em>password</em></strong>', 'required|xss_clean|trim|min_length[6]|max_length[20]');
+
+        $this->form_validation->set_rules('confirm_password', '<strong><em>password confirmation</em></strong>', 'required|xss_clean|trim|matches[password]');
+
+        // If there are form validation errors
+        if($this->form_validation->run() == FALSE)
+        {
+            // Set registration errors as a
+            // flash data variable
+            $this->session->set_flashdata('admin_user_add_errors', validation_errors());
+
+            redirect(base_url() . 'users/edit/' . $user_id);
+        }
+        else
+        {
+            // Set user first/last name as variable
+            $update_success = "<p><strong>The password of User ID $user_id has been updated.</strong></p>";
+
+            $this->session->set_flashdata('success_message', $update_success);
+
+            $this->UserDashboardModel->update_single_password($this->input->post(NULL, TRUE), $user_id);
+
+            redirect(base_url() . 'users/edit/' . $user_id);
+
+        }
+
+    }
 
 
 

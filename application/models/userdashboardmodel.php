@@ -28,6 +28,14 @@ class UserDashboardModel extends CI_Model
     }
 
 
+    public function update_single_password($post_data, $user_id)
+    {
+
+        $sec_password = substr(md5($post_data['password']), 0, -2);
+
+        $this->db->query("UPDATE users SET password = '$sec_password', updated_at = NOW() WHERE id = $user_id");
+
+    }
 
 
 
