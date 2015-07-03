@@ -311,29 +311,15 @@ class UserDashboard extends CI_Controller
 
     }
 
+    public function deleteuser($user_id)
+    {
 
+        $this->UserDashboardModel->delete_user($user_id);
 
+        $this->session->set_flashdata("delete_success", "<p><strong>You have sucessfully deleted a user with the ID of <em>$user_id</em>.</strong></p>");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        redirect(base_url() . 'dashboard/admin');
+    }
 
     public function destroy()
     {
@@ -341,6 +327,5 @@ class UserDashboard extends CI_Controller
 
         redirect(base_url());
     }
-
 }
 ?>

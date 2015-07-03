@@ -15,6 +15,11 @@ $route['register/newuser'] = 'userdashboard/registernewuser';
 // Admin home page after signing in
 $route['dashboard/admin'] = 'userdashboard/admin';
 
+// For Admins only, delete a single user
+$route['dashboard/admin/delete/(:num)'] = 'userdashboard/deleteuser/$1';
+
+
+
 // For Admins only, a page to show a single user to
 // update
 $route['users/edit/(:num)'] = 'userdashboard/adminupdateuser/$1';

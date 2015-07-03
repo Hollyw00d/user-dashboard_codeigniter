@@ -22,6 +22,16 @@ if(!$this->session->userdata('admin_session'))
     </div>
 
     <div class="row-fluid">
+        <div class="col-md-12">
+            <div class="success">
+                <?php
+                echo $this->session->flashdata('delete_success');
+                ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-fluid">
         <div class="col-md-12"><br class="clear"/></div>
     </div>
 
@@ -52,7 +62,7 @@ if(!$this->session->userdata('admin_session'))
                             <td><?php echo $row['created_at']; ?></td>
                             <td><?php echo $row['user_level']; ?></td>
                             <td class="no-border"><a href="<?php echo base_url() . 'users/edit/' . $row['id']; ?>">edit</a></td>
-                            <td><a href="#">remove</a></td>
+                            <td><a href="<?php echo base_url() . 'dashboard/admin/delete/' . $row['id']; ?>">delete</a></td>
                         </tr>
                     <?php
                     }
