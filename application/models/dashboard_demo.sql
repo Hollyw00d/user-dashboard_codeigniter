@@ -89,7 +89,7 @@ CREATE TABLE `users` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Elon','Musk','elon@musk.com','f379eaf3c831b04de153469d1bec34','admin','2015-07-01 15:51:04','2015-07-01 15:51:04'),(2,'Lady','Gaga','lady@gaga.com','f379eaf3c831b04de153469d1bec34','admin','2015-07-01 16:14:38','2015-07-01 16:14:38'),(3,'Hillary','Clinton','hillary@clinton.com','f379eaf3c831b04de153469d1bec34','admin','2015-07-01 16:15:25','2015-07-01 16:15:25'),(4,'Donald','Trump','donald@trump.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-01 16:16:12','2015-07-01 16:16:12'),(5,'George W.','Bush','georgew@bush.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-01 16:17:03','2015-07-01 16:17:03'),(6,'Jennifer','Aniston','jennifer@aniston.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-02 13:08:06','2015-07-02 13:08:06');
+INSERT INTO `users` VALUES (1,'Elon','Musk','elon@musk.com','f379eaf3c831b04de153469d1bec34','admin','2015-07-01 15:51:04','2015-07-01 15:51:04'),(2,'Lady','Gaga','lady@gaga.com','f379eaf3c831b04de153469d1bec34','admin','2015-07-01 16:14:38','2015-07-01 16:14:38'),(3,'Hillary','Clinton','hillary@clinton.com','f379eaf3c831b04de153469d1bec34','admin','2015-07-01 16:15:25','2015-07-01 16:15:25'),(6,'Jennifer','Aniston','jennifer@aniston.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-02 13:08:06','2015-07-02 13:08:06'),(7,'Hope','Solo','hope@solo.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-02 14:01:11','2015-07-02 14:01:11'),(8,'Joan Of','Arc','joanof@arc.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-02 14:02:20','2015-07-02 14:02:20'),(9,'Summer','Sanders','summer@sanders.com','f379eaf3c831b04de153469d1bec34','normal','2015-07-02 14:38:12','2015-07-02 14:38:12'),(11,'Oprah','Winfrey','oprah@winfrey.com','f63f4fbc9f8c85d409f2f59f2b9e12','admin','2015-07-02 15:21:16','2015-07-02 17:42:04');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-02 13:23:19
+-- Dump completed on 2015-07-02 21:18:16
