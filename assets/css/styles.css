@@ -92,3 +92,7 @@ nav li {
 #nav-user-name {
     padding: 0 40px 0 0;
 }
+
+.side-by-side-form input[type=text] {
+    width: 80%;
+}

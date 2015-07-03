@@ -194,14 +194,6 @@ class UserDashboard extends CI_Controller
 
     }
 
-
-
-
-
-
-
-
-
     public function insertuserintodb()
     {
 
@@ -252,11 +244,42 @@ class UserDashboard extends CI_Controller
 
         }
 
+    }
 
+    public function adminupdateuser($user_id)
+    {
+        // Assigns title tag
+        $title_tag = 'Edit User';
 
+        // Get single user
+        $show_single_user = $this->UserDashboardModel->show_single_user($user_id);
+
+        $this->load->view('userdashboard/admin_update_user', array('user_id' => $user_id, 'title_tag' => $title_tag, 'show_single_user' => $show_single_user));
 
     }
 
+
+
+
+
+
+
+
+    public function executeupdatesingleuser($user_id)
+    {
+
+        // Set user first/last name as variable
+        $update_success = '<p><strong>The profile of ' . $this->input->post('first_name', TRUE) . ' ' . $this->input->post('last_name', TRUE) . ' has been successfully updated.</strong></p>';
+
+        // Create a success message flashdata session
+        $this->session->set_flashdata('update_success', $update_success);
+
+        $this->UserDashboardModel->update_single_record($this->input->post(NULL, TRUE), $user_id);
+
+
+        redirect(base_url() . 'users/edit/' . $user_id);
+
+    }
 
 
 

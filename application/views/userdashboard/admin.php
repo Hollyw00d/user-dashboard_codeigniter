@@ -51,7 +51,7 @@ if(!$this->session->userdata('admin_session'))
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['created_at']; ?></td>
                             <td><?php echo $row['user_level']; ?></td>
-                            <td class="no-border"><a href="#">edit</a></td>
+                            <td class="no-border"><a href="<?php echo base_url() . 'users/edit/' . $row['id']; ?>">edit</a></td>
                             <td><a href="#">remove</a></td>
                         </tr>
                     <?php

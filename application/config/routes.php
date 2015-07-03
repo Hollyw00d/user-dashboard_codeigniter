@@ -12,8 +12,24 @@ $route['register'] = 'userdashboard/register';
 // Add new user
 $route['register/newuser'] = 'userdashboard/registernewuser';
 
+// Admin home page after signing in
 $route['dashboard/admin'] = 'userdashboard/admin';
+
+// For Admins only, a page to show a single user to
+// update
+$route['users/edit/(:num)'] = 'userdashboard/adminupdateuser/$1';
+
+// For Admins only, a page to actually update
+// a single user
+$route['users/edit/process/(:num)'] = 'userdashboard/executeupdatesingleuser/$1';
+
+
+
+
+// Normal user home page after signing in
 $route['dashboard'] = 'userdashboard/normaluser';
+
+
 $route['dashboard/user/profile'] = 'userdashboard/userprofile';
 
 $route['dashboard/checksignin'] = 'userdashboard/checksignin';
